@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 1494px;
+            height: 778px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/DinTchha_1.js"></script>
+        <script src="data/UBNDPhng_2.js"></script>
+        <script src="data/ngSng_3.js"></script>
+        <script src="data/ngGiaoThng_4.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[10.949486327688046,106.54764198261421],[11.170390807396817,106.9723706987553]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_GoogleMaps_0');
+        map.getPane('pane_GoogleMaps_0').style.zIndex = 400;
+        var layer_GoogleMaps_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleMaps_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+        });
+        layer_GoogleMaps_0;
+        map.addLayer(layer_GoogleMaps_0);
+        function pop_DinTchha_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tên</th>\
+                        <td>' + (feature.properties['Tên'] !== null ? autolinker.link(feature.properties['Tên'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cấp</th>\
+                        <td>' + (feature.properties['Cấp'] !== null ? autolinker.link(feature.properties['Cấp'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Dan So</strong><br />' + (feature.properties['Dan So'] !== null ? autolinker.link(feature.properties['Dan So'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Dien Tich</th>\
+                        <td>' + (feature.properties['Dien Tich'] !== null ? autolinker.link(feature.properties['Dien Tich'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Mat Do</th>\
+                        <td>' + (feature.properties['Mat Do'] !== null ? autolinker.link(feature.properties['Mat Do'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DinTchha_1_0(feature) {
+            switch(String(feature.properties['Dien Tich'])) {
+                case '283.8':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '762.21':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(228,75,51,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '825.75':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(240,124,74,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '898.16':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '946':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,201,128,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '1055.4':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,228,160,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '1147.71':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '1734.82':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,244,182,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '1769.47':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(199,232,173,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '2523.69':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,221,164,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '3334.37':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(128,191,171,1.0)',
+                interactive: true,
+            }
+                    break;
+                case '3365.5':
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(86,161,179,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_DinTchha_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_DinTchha_1');
+        map.getPane('pane_DinTchha_1').style.zIndex = 401;
+        map.getPane('pane_DinTchha_1').style['mix-blend-mode'] = 'normal';
+        var layer_DinTchha_1 = new L.geoJson(json_DinTchha_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_DinTchha_1',
+            layerName: 'layer_DinTchha_1',
+            pane: 'pane_DinTchha_1',
+            onEachFeature: pop_DinTchha_1,
+            style: style_DinTchha_1_0,
+        });
+        bounds_group.addLayer(layer_DinTchha_1);
+        map.addLayer(layer_DinTchha_1);
+        function pop_UBNDPhng_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tên</th>\
+                        <td>' + (feature.properties['Tên'] !== null ? autolinker.link(feature.properties['Tên'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cấp</th>\
+                        <td>' + (feature.properties['Cấp'] !== null ? autolinker.link(feature.properties['Cấp'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_UBNDPhng_2_0(feature) {
+            switch(String(feature.properties['Cấp'])) {
+                case 'điểm KT - XH':
+                    return {
+                pane: 'pane_UBNDPhng_2',
+                shape: 'diamond',
+                radius: 5.6,
+                opacity: 1,
+                color: 'rgba(61,128,53,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(62,228,112,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'phường':
+                    return {
+                pane: 'pane_UBNDPhng_2',
+                radius: 5.6,
+                opacity: 1,
+                color: 'rgba(128,67,36,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(172,91,49,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'thị xã':
+                    return {
+                pane: 'pane_UBNDPhng_2',
+                radius: 7.33334,
+                opacity: 1,
+                color: 'rgba(184,8,8,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(184,8,8,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'xã':
+                    return {
+                pane: 'pane_UBNDPhng_2',
+                radius: 5.6,
+                opacity: 1,
+                color: 'rgba(128,67,36,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(172,91,49,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_UBNDPhng_2');
+        map.getPane('pane_UBNDPhng_2').style.zIndex = 402;
+        map.getPane('pane_UBNDPhng_2').style['mix-blend-mode'] = 'normal';
+        var layer_UBNDPhng_2 = new L.geoJson(json_UBNDPhng_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_UBNDPhng_2',
+            layerName: 'layer_UBNDPhng_2',
+            pane: 'pane_UBNDPhng_2',
+            onEachFeature: pop_UBNDPhng_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_UBNDPhng_2_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_UBNDPhng_2);
+        map.addLayer(layer_UBNDPhng_2);
+        function pop_ngSng_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ngSng_3_0() {
+            return {
+                pane: 'pane_ngSng_3',
+                opacity: 1,
+                color: 'rgba(31,120,180,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ngSng_3');
+        map.getPane('pane_ngSng_3').style.zIndex = 403;
+        map.getPane('pane_ngSng_3').style['mix-blend-mode'] = 'normal';
+        var layer_ngSng_3 = new L.geoJson(json_ngSng_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ngSng_3',
+            layerName: 'layer_ngSng_3',
+            pane: 'pane_ngSng_3',
+            onEachFeature: pop_ngSng_3,
+            style: style_ngSng_3_0,
+        });
+        bounds_group.addLayer(layer_ngSng_3);
+        map.addLayer(layer_ngSng_3);
+        function pop_ngGiaoThng_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tên</th>\
+                        <td>' + (feature.properties['Tên'] !== null ? autolinker.link(feature.properties['Tên'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cấp</th>\
+                        <td>' + (feature.properties['Cấp'] !== null ? autolinker.link(feature.properties['Cấp'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Do Dai</th>\
+                        <td>' + (feature.properties['Do Dai'] !== null ? autolinker.link(feature.properties['Do Dai'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ngGiaoThng_4_0(feature) {
+            switch(String(feature.properties['Cấp'])) {
+                case 'huyện':
+                    return {
+                pane: 'pane_ngGiaoThng_4',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'xã':
+                    return {
+                pane: 'pane_ngGiaoThng_4',
+                opacity: 1,
+                color: 'rgba(219,30,42,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_ngGiaoThng_4');
+        map.getPane('pane_ngGiaoThng_4').style.zIndex = 404;
+        map.getPane('pane_ngGiaoThng_4').style['mix-blend-mode'] = 'normal';
+        var layer_ngGiaoThng_4 = new L.geoJson(json_ngGiaoThng_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ngGiaoThng_4',
+            layerName: 'layer_ngGiaoThng_4',
+            pane: 'pane_ngGiaoThng_4',
+            onEachFeature: pop_ngGiaoThng_4,
+            style: style_ngGiaoThng_4_0,
+        });
+        bounds_group.addLayer(layer_ngGiaoThng_4);
+        map.addLayer(layer_ngGiaoThng_4);
+        setBounds();
+        var i = 0;
+        layer_DinTchha_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Tên'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Tên']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_DinTchha_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_ngGiaoThng_4.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Tên'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['Tên']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ngGiaoThng_4'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_DinTchha_1,layer_UBNDPhng_2,layer_ngGiaoThng_4]);
+        map.on("zoomend", function(){
+            resetLabels([layer_DinTchha_1,layer_UBNDPhng_2,layer_ngGiaoThng_4]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_DinTchha_1,layer_UBNDPhng_2,layer_ngGiaoThng_4]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_DinTchha_1,layer_UBNDPhng_2,layer_ngGiaoThng_4]);
+        });
+        </script>
+    </body>
+</html>
